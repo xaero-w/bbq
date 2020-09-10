@@ -9,6 +9,7 @@ gem 'uglifier'
 gem 'webpacker', '~> 4.0'
 gem 'jquery-rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
