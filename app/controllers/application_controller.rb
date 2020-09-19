@@ -13,9 +13,14 @@ class ApplicationController < ActionController::Base
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
   def configure_permitted_parameters
+    # Разрешаем использование имени пользователя на странице регистрации
     devise_parameter_sanitizer.permit(
       :account_update,
       keys: [:password, :password_confirmation, :current_password]
+    )
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: [:name]
     )
   end
 
