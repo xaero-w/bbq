@@ -70,6 +70,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -146,6 +148,8 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -183,10 +187,12 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise
+  devise-i18n
   jquery-rails
   listen (~> 3.2)
   pg
   rails (~> 6.0.3, >= 6.0.3.2)
+  russian
   sqlite3 (~> 1.4)
   twitter-bootstrap-rails
   uglifier
