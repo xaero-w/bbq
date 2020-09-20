@@ -7,7 +7,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'listen', '~> 3.2'
-gem 'russian'
+gem 'rails-i18n'
 gem 'uglifier'
 gem 'webpacker', '~> 4.0'
 gem 'jquery-rails'
