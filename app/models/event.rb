@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
-
+  # событие принадлежит юзеру
   belongs_to :user
+
+  has_many :comments
 
   validates :user, presence: true
 

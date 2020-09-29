@@ -7,7 +7,9 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
+  # юзкер может создавать много событий
   has_many :events
+  has_many :comments
 
   validates :name, presence: true,
                    length: {maximum: 35}
