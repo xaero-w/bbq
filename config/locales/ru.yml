@@ -5,6 +5,12 @@ ru:
     models:
       user: "Пользователь"
       event: "Событие"
+        subscription:
+          attributes:
+            user_name:
+              user_owner_event: "Вы не можете подписаться, если вы организатор события"
+            user_email:
+              user_owner_email: "Вы не можете использовать email зарегистрированного пользователя"
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -68,15 +74,3 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: "Вы уверены, что хотите удалить эту подписку?"
-
-
-
-  activerecord:
-    errors:
-      models:
-        subscription:
-          attributes:
-            user_name:
-              user_owner_event: "Вы не можете подписаться, если вы организатор события"
-            user_email:  
-              user_owner_email: "Вы не можете использовать email зарегистрированного пользователя"  
