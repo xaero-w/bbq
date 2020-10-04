@@ -19,14 +19,24 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
-        
-    helpers:
-      placeholder:
-        model_name:
-          email: "Почта"
-          name: "Имя"
-          password: "Пароль"
-          password_confirmation: "Повторите пароль"
+
+#    helpers:
+#      placeholder:
+#        model_name:
+#          email: "Почта"
+#          name: "Имя"
+#          password: "Пароль"
+#          password_confirmation: "Повторите пароль"
+
+  devise:
+    placeholder:
+      model_name:
+        email: "Почта"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Повторите пароль"
+    sessions:
+      log_in: "Войти"
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -58,9 +68,15 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: "Вы уверены, что хотите удалить эту подписку?"
-#  activerecord:
-#    errors:
-#      models:
-#        subscription:
-#          attributes:
-#            user_owner_email: "Вы не можете подписаться, если вы организатор события"
+
+
+
+  activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_name:
+              user_owner_email: "Вы не можете подписаться, если вы организатор события"
+            user_email:  
+              user_owner_email: "Вы не можете использовать email зарегистрированного пользователя"  

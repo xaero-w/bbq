@@ -42,8 +42,12 @@ class Subscription < ActiveRecord::Base
   end
 
   def existing_user
-    # пока жи сообщение об ошике если поьзователь с хочет подписаться на свое же событие (идет проверка почты того
-    # кто создал события с тем кто хочет на него подписаться)
+    # покажи сообщение об ошике если пользователь хочет подписаться на свое же событие (идет проверка почты того
+    # кто создал событие с тем кто хочет на него подписаться)
     errors.add(:user_email, :user_owner_email) if User.find_by(email: user_email)
+  end
+
+  def user_email_owner
+    errors.add(:user, I18n.t(".owner_email_message")) if User.fynd_by_email(user_email)
   end
 end
