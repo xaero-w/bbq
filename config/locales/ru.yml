@@ -9,15 +9,24 @@ ru:
     # Перевод названий аттрибутов моделей
     attributes:
       user:
-        email: "Email"
+        email: "Почта"
         name: "Имя"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        forgot_your_password: "Забыли свой пароль?"
       event:
         title: "Название"
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+        
+    helpers:
+      placeholder:
+        model_name:
+          email: "Почта"
+          name: "Имя"
+          password: "Пароль"
+          password_confirmation: "Повторите пароль"
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -27,6 +36,7 @@ ru:
       destroyed: "Вы удалили мероприятие :("
     users:
       updated: "Вы обновили свой профиль"
+      forgot_your_password: "Забыли свой пароль?"
     comments:
       destroyed: "Комментарий удален"
       created: "Ваш комментарий добавлен"
@@ -43,8 +53,14 @@ ru:
 
   comments:
     comment:
-      destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
+      destroy_confirm: "Вы уверены, что хотите удалить этот комменатрий?"
 
   subscriptions:
     subscription:
-      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      destroy_confirm: "Вы уверены, что хотите удалить эту подписку?"
+#  activerecord:
+#    errors:
+#      models:
+#        subscription:
+#          attributes:
+#            user_owner_email: "Вы не можете подписаться, если вы организатор события"
