@@ -5,18 +5,13 @@ ru:
     models:
       user: "Пользователь"
       event: "Событие"
-        subscription:
-          attributes:
-            user_name:
-              user_owner_event: "Вы не можете подписаться, если вы организатор события"
-            user_email:
-              user_owner_email: "Вы не можете использовать email зарегистрированного пользователя"
 
     # Перевод названий аттрибутов моделей
     attributes:
       user:
         email: "Почта"
         name: "Имя"
+        avatar: "Аватарка"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         forgot_your_password: "Забыли свой пароль?"
@@ -25,24 +20,6 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
-
-#    helpers:
-#      placeholder:
-#        model_name:
-#          email: "Почта"
-#          name: "Имя"
-#          password: "Пароль"
-#          password_confirmation: "Повторите пароль"
-
-  devise:
-    placeholder:
-      model_name:
-        email: "Почта"
-        name: "Имя"
-        password: "Пароль"
-        password_confirmation: "Повторите пароль"
-    sessions:
-      log_in: "Войти"
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -65,7 +42,7 @@ ru:
   # Перевод названия приложения и компании-разработчика
   app:
     name: "Шашлыки"
-    company: "Хороший программист"
+    company: "by xaero"
 
   comments:
     comment:
@@ -74,3 +51,13 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: "Вы уверены, что хотите удалить эту подписку?"
+
+  devise:
+    placeholder:
+      model_name:
+        email: "Почта"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Повторите пароль"
+    sessions:
+      log_in: "Войти"

@@ -1,26 +1,19 @@
-# (с) goodprogrammer.ru
-#
-# Модель Подписки
-#
-class Subscription < ActiveRecord::Base
-  belongs_to :event
+class Subscription < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :event
 
-  validates :user_owner
-  validates :existing_user, unless: -> { user.present? } 
-  
-  # проверки выполняются только если user не задан (незареганные приглашенные)
+  validate :user_owner
+  validate :existing_user, unless: -> { user.present? }
+
   validates :user_name, presence: true, unless: -> { user.present? }
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
 
-  # для данного event_id один юзер может подписаться только один раз (если юзер задан)
+  # Для конкретного event_id один юзер может подписаться только один раз (если юзер задан)
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
 
-  # или один email может использоваться только один раз (если анонимная подписка)
-  validates :user_email, uniqueness: { scope:  :event_id }, unless: -> { user.present? }
+  # Или один email может использоваться только один раз (если анонимная подписка)
+  validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
-  # переопределяем метод, если есть юзер, выдаем его имя,
-  # если нет -- дергаем исходный переопределенный метод
   def user_name
     if user.present?
       user.name
@@ -29,8 +22,6 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  # переопределяем метод, если есть юзер, выдаем его email,
-  # если нет -- дергаем исходный переопределенный метод
   def user_email
     if user.present?
       user.email
@@ -39,12 +30,11 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  # запрет приглашения существующих пользователей 
   def user_owner
-    errors.add(:user_name, :user_owner_event) if user == event.user 
+    errors.add(:user_name, :user_owner_event) if user == event.user
   end
 
   def existing_user
-    errors.add(:user, :user_owner_email) if User.find_by(email: user_email)
+    errors.add(:user_email, :user_owner_email) if User.find_by(email: user_email)
   end
 end
