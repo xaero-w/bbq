@@ -1,5 +1,5 @@
 module ApplicationHelper
-  # Возвращает путь к аватарке данного юзера. Если у пользователя есть его
+  # Возвращает путь к аватарке данного юзера. Если у пользователя есть его 
   # личная, возвращает её, иначе стандартную.
   def user_avatar(user)
     if user.avatar?
@@ -14,30 +14,30 @@ module ApplicationHelper
     if user.avatar.file.present?
       user.avatar.thumb.url
     else
-      asset_path("user.png")
+      asset_path('user.png')
     end
   end
 
   # Возвращает адерс рандомной фотки события, если есть хотя бы одна. Или ссылку
   # на дефолтную картинку.
   def event_photo(event)
-    photo = event.photos.persisted
+    photos = event.photos.persisted
 
-    if photo.any?
-      photo.sample.photo.url
+    if photos.any?
+      photos.sample.photo.url
     else
-      asset_path("event.jpg")
+      asset_path('event.jpg')
     end
   end
 
   # Аналогично event_photo, только возвращает миниатюрную версию
   def event_thumb(event)
-    photo = event = event.photos.persisted
+    photos = event.photos.persisted
 
     if photos.any?
       photos.sample.photo.thumb.url
     else
-      asset_path("event_thumb.jpg")
+      asset_path('event_thumb.jpg')
     end
   end
 
