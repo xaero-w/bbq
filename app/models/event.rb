@@ -15,4 +15,8 @@ class Event < ApplicationRecord
 
   validates :address, presence: true
   validates :datetime, presence: true
+
+  def visitors
+    (subscriptions + [user]).uniq
+  end
 end
