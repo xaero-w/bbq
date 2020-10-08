@@ -21,10 +21,10 @@ module ApplicationHelper
   # Возвращает адерс рандомной фотки события, если есть хотя бы одна. Или ссылку
   # на дефолтную картинку.
   def event_photo(event)
-    photo = event.photos.persisted
+    photos = event.photos.persisted
 
-    if photo.any?
-      photo.sample.photo.url
+    if photos.any?
+      photos .sample.photo.url
     else
       asset_path("event.jpg")
     end

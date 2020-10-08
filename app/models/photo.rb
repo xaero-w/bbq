@@ -7,5 +7,5 @@ class Photo < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  scope :persisted, -> { where "od IS NOT NULL" }
+  scope :persisted, -> { where "id IS NOT NULL" }
 end
