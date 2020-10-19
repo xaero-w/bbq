@@ -54,11 +54,15 @@ ru:
       created: "Вы добавили фотографию к событию"
       destroyed: "Вы удалили фотку"
 
-
   # Перевод названия приложения и компании-разработчика
   app:
     name: "Шашлыки"
     company: "by xaero"
+
+  errors:
+    one: "%{count} ошибка"
+    few: "%{count} ошибки"
+    many: "%{count} ошибок"
 
   comments:
     comment:
