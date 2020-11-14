@@ -18,6 +18,10 @@ module ApplicationHelper
     end
   end
 
+  def delete_avatar
+    user.avatar.purge
+  end
+
   # Возвращает адерс рандомной фотки события, если есть хотя бы одна. Или ссылку
   # на дефолтную картинку.
   def event_photo(event)

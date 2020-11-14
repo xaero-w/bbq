@@ -8,6 +8,12 @@ ru:
       subscription: "Подписка"
       comment: "Комментарий"
       photo: "Фотография"
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              user_owner_email: "Вы не можете использовать сущесствующий email"
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -58,7 +64,7 @@ ru:
   app:
     name: "Шашлыки"
     company: "by xaero"
-
+  # Перевод ошибок с учетом числа и смклонения
   errors:
     one: "%{count} ошибка"
     few: "%{count} ошибки"

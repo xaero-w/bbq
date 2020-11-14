@@ -31,10 +31,11 @@ class Subscription < ApplicationRecord
   end
 
   def user_owner
-    errors.add(:user_name, :user_owner_event) if user == event.user
+    errors.add(:base, :user_owner_event) if user == event.user
   end
 
   def existing_user
-    errors.add(:user_email, :user_owner_email) if User.find_by(email: user_email)
+    errors.add(:base, :user_owner_email) if User.find_by(email: user_email)
+
   end
 end
