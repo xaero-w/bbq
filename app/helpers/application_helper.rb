@@ -14,9 +14,11 @@ module ApplicationHelper
     if user.avatar.file.present?
       user.avatar.thumb.url
     else
-      asset_path("user.png")
+      asset_path('user.png')
     end
   end
+
+
 
   def delete_avatar
     user.avatar.purge
