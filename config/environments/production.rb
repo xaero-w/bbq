@@ -90,7 +90,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Базовый урл сайта, для генерации правильных ссылок в письмах
-  # ПРОПИСЫВАЙТЕ свой!
   config.action_mailer.default_url_options = {host: 'bbqhere.herokuapp.com'}
 
   # Вываливать ли посетителю сайта ошибки при отправке писем
@@ -102,7 +101,7 @@ Rails.application.configure do
   # отправка почты по протоколу SMTP
   config.action_mailer.delivery_method = :smtp
 
-    # Настройки для Sendgrid
+  # Настройки для Sendgrid
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
