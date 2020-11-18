@@ -63,16 +63,23 @@ Rails.application.configure do
   # Базовый урл сайта, для генерации правильных ссылок в письмах
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # Вываливать ли посетителю сайта ошибки при отправке писем
+  config.action_mailer.raise_delivery_errors = false
+
+  # Делать рассылку писем (если false — мэйлер только имитирует работу, реальных писем не уходит)
+  config.action_mailer.perform_deliveries = true
+
   # отправка почты по протоколу SMTP
   config.action_mailer.delivery_method = :smtp
 
-  # Настройки для работы через GMail аккаунт
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
-    user_name: '#{}', # не используйте для тестов свои реальные ящики
-    password: '', # не храните здесь пароль!
-    authentication: 'plain',
-    enable_starttls_auto: true
+    # Настройки для Sendgrid
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
 end
