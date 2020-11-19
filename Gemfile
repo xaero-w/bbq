@@ -4,16 +4,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.1"
 
 gem "bootsnap", ">= 1.4.2", require: false
+
 gem "carrierwave"
+
 gem "devise"
 gem "devise-i18n"
+
 gem "fog-aws"
-gem "listen", "~> 3.2"
+
 gem "jquery-rails"
+
+gem "listen", "~> 3.2"
+
+gem 'mailgun-ruby', '~>1.1.6'
+
 gem "rails-i18n"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem "rmagick"
+
 gem "twitter-bootstrap-rails"
+
 gem "uglifier"
 gem "webpacker", "~> 4.0"
 
