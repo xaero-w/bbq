@@ -90,13 +90,14 @@ Rails.application.configure do
   # отправка почты по протоколу SMTP
   config.action_mailer.delivery_method = :smtp
 
+ # Настройки для MailGun
   ActionMailer::Base.smtp_settings = {
-      :port           => 587,
-      :address        => "heroku.com",
-      :domain         => ENV['MAILGUN_DOMAIN'],
-      :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-      :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-      :authentication => :plain,
+    :address        => 'smtp.mailgun.org',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
-
 end
