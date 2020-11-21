@@ -16,8 +16,6 @@ gem "jquery-rails"
 
 gem "listen", "~> 3.2"
 
-gem 'mailgun-ruby', '~>1.1.6'
-
 gem "rails-i18n"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem "rmagick"

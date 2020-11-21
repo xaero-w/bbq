@@ -92,12 +92,22 @@ Rails.application.configure do
 
  # Настройки для MailGun
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.mailgun.org',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
+    address:              'smtp.gmail.com',
+    port:                 '587',
+    authentication:       'plain',
+    user_name:            ENV['GMAIL_USER_NAME'],
+    password:             ENV['GMAIL_USER_PASSWORD'],
+    domain:               'heroku.com',
+    enable_starttls_auto: true
   }
+
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: '587',
+      user_name: 'testrailsw', # не используйте для тестов свои реальные ящики
+      password: 'acwwps!1',
+      authentication: 'plain',
+      enable_starttls_auto: true
+  }
+
 end
