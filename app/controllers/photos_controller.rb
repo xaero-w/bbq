@@ -42,8 +42,21 @@ class PhotosController < ApplicationController
   end
 
   private
+
+  def notify_subscribers(event, photo)
+    # собираем всех подписчиков и автора события в массив мэйлов, исключаем повторяющиеся
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+    all_emails.delete(photo.user.email)
+
+    # XXX: Этот метод может выполняться долго из-за большого числа подписчиков
+    # поэтому в реальных приложениях такие вещи надо выносить в background задачи!
+    all_emails.each do |mail|
+      EventMailer.photo(event, photo, mail).deliver_now
+    end
+  end
+
   # Так как фотография — вложенный ресурс, то в params[:event_id] рельсы
-  # автоматически положает id события, которому принадлежит фотография
+  # автоматически положат id события, которому принадлежит фотография
   # найденное событие будет лежать в переменной контроллера @event
   def set_event
     @event = Event.find(params[:event_id])
@@ -58,16 +71,5 @@ class PhotosController < ApplicationController
   # c единственным полем (оно тоже называется photo)
   def photo_params
     params.fetch(:photo, {}).permit(:photo)
-  end
-
-  def notify_subscribers(event, photo)
-    # собираем всех подписчиков и автора события в массив мэйлов, исключаем повторяющиеся
-    all_emails = (event.subscriptions.map(&:user_email) - [event.user.email]).uniq
-
-    # XXX: Этот метод может выполняться долго из-за большого числа подписчиков
-    # поэтому в реальных приложениях такие вещи надо выносить в background задачи!
-    all_emails.each do |mail|
-      EventMailer.photo(event, photo, mail).deliver_now
-    end
   end
 end
