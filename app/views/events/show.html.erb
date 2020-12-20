@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'map' %>
+
 <div class="event">
   <div class="event-info row">
     <div class="col-md-12">
@@ -11,10 +13,8 @@
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
-            <h3>
-              <small><%= link_to @event.address,
-                                 "https://yandex.ru/maps/?text=#{@event.address}" %></small>
-            </h3>
+            <div id="map" style="width: 600px; height: 400px" data-address="<%= @event.address %>"></div>
+            <h3><small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
             <p><%= @event.description %></p>
           </div>
 
